@@ -1,0 +1,4 @@
+#导入数据至solr
+http://172.20.16.72:8084/search/importall
+#搜索
+http://172.20.16.72:8084/search/q?keyword=?&page=?&rows=?

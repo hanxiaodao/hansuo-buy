@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.hansuo</groupId>
+    <artifactId>hansuo-manager</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>hansuo-manager-web</artifactId>
+  <packaging>war</packaging>
+  <dependencies>
+		<dependency>
+			<groupId>com.hansuo</groupId>
+			<artifactId>hansuo-manager-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- JSP相关 -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- 文件上传组件 -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		<!-- FASTJSON -->
+		<dependency>
+  			<groupId>com.alibaba</groupId>
+  				<artifactId>fastjson</artifactId>
+  				<version>1.2.38</version>
+		</dependency>
+		<dependency>
+        	<groupId>com.toabao.fastdfs</groupId>  <!--自定义-->
+        	<artifactId>fastdfs-client</artifactId>    <!--自定义-->
+        	<version>1.0</version> <!--自定义-->
+        	<scope>system</scope> <!--system，类似provided，需要显式提供依赖的jar以后，Maven就不会在Repository中查找它-->
+        	<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/fastdfs-client-java-1.25.jar</systemPath> <!--项目根目录下的lib文件夹下-->
+    	</dependency> 
+		
+	</dependencies>
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<!-- <url>http://localhost:8080/manager/text</url>
+					 <server>tomcat7</server>
+					<username>admin</username>
+					<password>admin</password> -->
+					<port>8080</port>
+					<username>admin</username>
+					<password>admin</password>
+					<path>/</path>
+				</configuration>
+			</plugin><!-- 命令：tomcat7:redeploy -->
+		</plugins>
+	</build>
+</project>

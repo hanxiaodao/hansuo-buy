@@ -1,0 +1,7 @@
+#接口列表
+#查询商品详情
+172.20.16.72:8083/rest/item/desc/{itemId}
+#查询商品规格参数
+172.20.16.72:8083/rest/item/param/{itemId}
+#查询商品基础信息
+172.20.16.72:8083/rest/item/base/{itemId}
